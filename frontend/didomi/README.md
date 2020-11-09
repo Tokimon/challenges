@@ -1,46 +1,54 @@
-# Getting Started with Create React App
-
+# DIDOMI Frontend technical challenge
+_A technical test project_  
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to start
 
-In the project directory, you can run:
+1. Install via `npm i`
+2. Start server `npm start`
+3. Access the server via http://localhost:4200
 
-### `yarn start`
+## My approach
+I started with looking at the specification to determine the requirements especially for the points I needed to read up on.
+I then build the UI and the page flow. Then configured a simple server and finished by writing my tests and documentation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I didn't develop in TDD, as I built the components with some trial and error of what would work best, which is why the tests were written after.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Steps to determine solution
+1. Read the specification through and information I needed to read up on
+2. I had not been using Material UI before, so I had to read up on that. See how
+   it works and what components to use.
+3. The specifications didn't mention any specific way persistence should be
+   implemented on the server, so I went with a simple in memory solution.
+4. I roughly planned out how front end should be structured (Following Atom design Pattern).
+6. Chose what tools to use.
+  - I wanted to write the code in TypeScript, so that was easy enough.
+  - To ease front end build setup I opted to use create-react-app, so I could
+    just get to work.
+  - Express was the simplest way to set up a server, so I want with that.
+7. Get to work.
 
-### `yarn test`
+# Obstacles encountered
+- Went down a rabbit hole trying to make redux testing work. In the end I found
+  an alternative way to test unit it.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How the time was spent
+| Task | Time (in hours) |
+|------|:---------------:|
+| Reading up on Material UI | 2 |
+| Various other research \* | 2 |
+| Set up environment (TypeScript (for server) + create-react-app) | 2 |
+| Setting up express server | 0.5 |
+| Building UI | 4 |
+| Writing tests | 4 |
+| Writing explanation | 1 |
+| **Total** | **15.5** |
 
-### `yarn build`
+\* _CRA, Typescript, \@testing-library, Redux Testing, etc._
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What to improve on the solution
+- Adding consent data to the list could be done better. Right now is searches the array to see if the email already exists. This is only feasible because the list is so small. In theory to make the override work it would be better to index the emails in a sort of directory (Map or plain object) as `email => list index`, to have a more direct pointer to the entry to update.
+- In theory the consent registrations list pagination could be done server side, but that really depends on how large these lists ends up being.
+- The folder `components` might not have the best name, but I couldn't really decide on a better name, but the solution tries to follow an Atomic Design Pattern, hence the reason to split it up.
+- Add integration tests for Router flow and Redux store.
+- Add polyfills for IE support. Solution is only tested in newer browsers.

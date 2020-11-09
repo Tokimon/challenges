@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 import { ConsentEntry } from './shared/generalDefinitions';
 import addToConsentsList from './shared/addToConsentsList';
@@ -18,7 +18,7 @@ let consents: ConsentEntry[] = [{
 
 const server = express();
 
-server.use('/', express.static(resolve('build')));
+server.use(cors());
 
 server.get('/consents', (_, res) => {
   res.json(consents);

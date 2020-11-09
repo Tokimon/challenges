@@ -3,7 +3,7 @@ import { ConsentEntry } from '../shared/generalDefinitions';
 
 
 async function fetchConsents(config: object): Promise<ConsentEntry[]> {
-  const response = await fetch('/consents', config)
+  const response = await fetch('http://localhost:4200/consents', config)
   return response.json();
 }
 

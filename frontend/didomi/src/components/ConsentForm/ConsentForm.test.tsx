@@ -57,7 +57,7 @@ describe('Components / ConsentForm', () => {
         expect(onSubmit).toHaveBeenCalledWith(consentEntry);
       });
 
-      test('Redirects to "/consents" page when clicked', () => {
+      test('Links to "/consents" page', () => {
         const { getByTestId } = renderWithRouter();
 
         const Button = getByTestId('button');

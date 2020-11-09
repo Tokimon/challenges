@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to start
 
-1. Install via `npm i`
-2. Start server `npm start`
+1. Install via `npm i` or `yarn install`
+2. Start server `npm start` or `yarn start`
 3. Access the server via http://localhost:4200
 
 ## My approach
